@@ -2,5 +2,8 @@
 
 *{
     font-family: 'Prompt', sans-serif;
+    
 }
+
+@variant dark (&:where(.dark, .dark *));
 
