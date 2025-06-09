@@ -1,8 +1,28 @@
+import React, {useState} from 'react';
 import FAQItem from '../components/FAQItem';
 import faqData from '../data/faqData';
 
 const FAQList = ({ toggleDarkMode, darkMode}) => {
- 
+  const[openId, setOpenId] = useState(null);
+  const[expandAll, setExpandAll] = useState(false);
+
+const toggleItem = (id) =>{
+  if(expandAll) {
+    setExpandAll(false);
+    setOpenId((prevId)=>{
+      if(prevId === id){
+        return null; // Close the item if it's already open
+      }
+      return id; // Open the clicked item
+    });
+  }
+}
+
+const toggleExpandAll = () => {
+  setExpandAll((prev) => !prev);
+  setOpenId(null) ; // Reset openId when toggling expand all 
+}
+
   return (
     <div className='max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
       <div className='flex flex-col sm:flex-row justify-between items-center mb-8 gap-4'>
