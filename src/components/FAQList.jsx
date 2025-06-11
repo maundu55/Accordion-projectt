@@ -8,14 +8,16 @@ const FAQList = ({ toggleDarkMode, darkMode}) => {
 
 const toggleItem = (id) =>{
   if(expandAll) {
-    setExpandAll(false);
+      setExpandAll(false);
+      }
+    
     setOpenId((prevId)=>{
       if(prevId === id){
-        return null; // Close the item if it's already open
+        return null;
       }
       return id; // Open the clicked item
     });
-  }
+  
 }
 
 const toggleExpandAll = () => {
